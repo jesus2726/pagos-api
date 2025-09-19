@@ -90,13 +90,13 @@ class PaymentOrderService
     {
         // Verificar saldo suficiente
         if ($client->balance < $totalAmount) {
-            Log::warning('Saldo insuficiente para cliente', [
+            Log::warning('Insufficient balance for client', [
                 'client_id' => $client->id,
                 'current_balance' => $client->balance,
                 'required_amount' => $totalAmount
             ]);
             throw new InsufficientBalanceException(
-                "Saldo insuficiente. Saldo actual: {$client->balance}, Monto requerido: {$totalAmount}"
+                "Insufficient balance. Current balance: {$client->balance}, Required amount: {$totalAmount}"
             );
         }
     }
@@ -123,7 +123,7 @@ class PaymentOrderService
             $client->balance,
             $newBalance,
             'successful',
-            "Orden de pago procesada exitosamente con {$totalAmount} pagos",
+            "Payment order processed successfully with {$totalAmount} payments",
             [
                 'payments_count' => count($payments),
                 'beneficiaries' => collect($payments)->pluck('beneficiary_uuid')->toArray()
@@ -147,7 +147,7 @@ class PaymentOrderService
 
     private function logError($order, $totalAmount, $clientId, $payments)
     {
-        Log::error('Error al crear orden de pago', [
+        Log::error('Error creating payment order', [
             'order_id' => $order->id,
             'client_id' => $clientId,
             'total_amount' => $totalAmount,
@@ -157,7 +157,7 @@ class PaymentOrderService
 
     private function logSuccess($order, $totalAmount, $clientUuid, $payments)
     {
-        Log::info('Orden de pago creada exitosamente', [
+        Log::info('Payment order created successfully', [
             'order_id' => $order->id,
             'client_id' => $clientUuid,
             'total_amount' => $totalAmount,
