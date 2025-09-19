@@ -27,29 +27,4 @@ class PaymentOrder extends Model
         return $this->hasMany(Payment::class);
     }
 
-    public function transactionAudit()
-    {
-        return $this->morphOne(TransactionAudit::class, 'related');
-    }
-
-    // Scopes para optimización
-    public function scopeWithRelations($query)
-    {
-        return $query->with(['client', 'payments.beneficiary']);
-    }
-
-    public function scopeSuccessful($query)
-    {
-        return $query->where('status', 'successful');
-    }
-
-    public function scopePending($query)
-    {
-        return $query->where('status', 'pending');
-    }
-
-    public function scopeRejected($query)
-    {
-        return $query->where('status', 'rejected');
-    }
 }

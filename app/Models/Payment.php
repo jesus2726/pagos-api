@@ -18,29 +18,13 @@ class Payment extends Model
         'uuid',
     ];
 
-    public function paymentOrder()
-    {
-        return $this->belongsTo(PaymentOrder::class);
-    }
-
     public function beneficiary()
     {
         return $this->belongsTo(Beneficiary::class);
     }
 
-    // Scopes para optimización
-    public function scopeSuccessful($query)
+    public function paymentOrder()
     {
-        return $query->where('status', 'successful');
-    }
-
-    public function scopePending($query)
-    {
-        return $query->where('status', 'pending');
-    }
-
-    public function scopeRejected($query)
-    {
-        return $query->where('status', 'rejected');
+        return $this->belongsTo(PaymentOrder::class);
     }
 }

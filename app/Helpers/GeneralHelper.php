@@ -7,14 +7,6 @@ use Illuminate\Support\Str;
 class GeneralHelper
 {
     /**
-     * Formatea un monto a dos decimales
-     */
-    public static function formatAmount($amount): float
-    {
-        return round((float) $amount, 2);
-    }
-
-    /**
      * Genera un UUID
      */
     public static function generateUuid(): string

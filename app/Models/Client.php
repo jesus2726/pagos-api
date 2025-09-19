@@ -31,15 +31,4 @@ class Client extends Model
     {
         return $this->hasMany(TransactionAudit::class);
     }
-
-    // Scopes para optimización
-    public function scopeWithRelations($query)
-    {
-        return $query->with(['beneficiaries', 'paymentOrders.payments.beneficiary']);
-    }
-
-    public function scopeActive($query)
-    {
-        return $query->where('status', 'active');
-    }
 }

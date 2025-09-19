@@ -35,8 +35,4 @@ class TransactionAudit extends Model
         return $this->belongsTo(Client::class);
     }
 
-    public function related()
-    {
-        return $this->morphTo('related', 'related_type', 'related_id');
-    }
 }
