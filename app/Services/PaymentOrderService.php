@@ -126,7 +126,7 @@ class PaymentOrderService
             "Orden de pago procesada exitosamente con {$totalAmount} pagos",
             [
                 'payments_count' => count($payments),
-                'beneficiaries' => collect($payments)->pluck('beneficiary_id')->toArray()
+                'beneficiaries' => collect($payments)->pluck('beneficiary_uuid')->toArray()
             ]
         );
     }
