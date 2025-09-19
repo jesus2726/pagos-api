@@ -7,13 +7,6 @@ A REST API developed in Laravel for managing payments to be disbursed through pl
 ### Minimum Requirements
 - **PHP**: 8.2 or higher
 - **Composer**: Latest stable version
-- **Node.js**: 18.x or higher
-- **NPM**: Latest stable version
-- **SQLite**: Included in PHP (default database)
-
-### Recommended Requirements
-- **Laragon** (Windows) or **XAMPP** (Multi-platform)
-- **Git** for version control
 
 ## 🚀 Step-by-Step Installation
 
@@ -30,13 +23,7 @@ cd pagos-api
 composer install
 ```
 
-### 3. Install Node.js Dependencies
-
-```bash
-npm install
-```
-
-### 4. Configure Environment Variables
+### 3. Configure Environment Variables
 
 Create the `.env` file based on Laravel configuration:
 
@@ -44,19 +31,19 @@ Create the `.env` file based on Laravel configuration:
 cp .env.example .env
 ```
 
-### 5. Generate Application Key
+### 4. Generate Application Key
 
 ```bash
 php artisan key:generate
 ```
 
-### 6. Create SQLite Database
+### 5. Create SQLite Database
 
 ```bash
 touch database/database.sqlite
 ```
 
-### 7. Run Migrations
+### 6. Run Migrations
 
 ```bash
 php artisan migrate
@@ -94,7 +81,6 @@ http://localhost:8000/api
 
 ### System Information
 - `GET /api/info` - System information
-- `GET /api/test` - Test endpoint
 
 ## 📖 API Documentation
 

@@ -46,4 +46,3 @@ Route::prefix('audit')->group(function () {
 });
 
 Route::get('/info', [InfoController::class, 'info']);
-Route::get('/test', [TestController::class, 'test']);
