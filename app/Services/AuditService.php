@@ -43,7 +43,7 @@ class AuditService
                 'metadata' => $metadata,
             ]);
 
-            Log::info('Transacción auditada', [
+            Log::info('Transaction audited', [
                 'audit_id' => $audit->id,
                 'transaction_type' => $transactionType,
                 'client_id' => $clientId,
@@ -54,7 +54,7 @@ class AuditService
             return $audit;
 
         } catch (\Exception $e) {
-            Log::error('Error al crear auditoría de transacción', [
+            Log::error('Error creating transaction audit', [
                 'transaction_type' => $transactionType,
                 'client_id' => $clientId,
                 'error' => $e->getMessage()
